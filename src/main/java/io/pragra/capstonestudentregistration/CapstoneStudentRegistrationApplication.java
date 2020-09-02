@@ -31,7 +31,7 @@ public class CapstoneStudentRegistrationApplication {
     SpringApplication.run(CapstoneStudentRegistrationApplication.class, args);
   }
 
-  @Bean
+  /*@Bean
   CommandLineRunner runner() {
 
     return args -> {
@@ -58,5 +58,5 @@ public class CapstoneStudentRegistrationApplication {
       service.addRegistration(new Registration(student, Arrays.asList(program1),
           Arrays.asList(education), Arrays.asList(employer), payment, new Date()));
     };
-  }
+  }*/
 }

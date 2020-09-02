@@ -87,12 +87,12 @@ public class Employer {
     this.phoneNumber = phoneNumber;
   }
 
-  public long getStudent() {
+  public Student getStudent() {
 
     return student;
   }
 
-  public void setStudent(long student) {
+  public void setStudent(Student student) {
 
     this.student = student;
   }

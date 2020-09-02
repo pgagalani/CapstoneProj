@@ -26,7 +26,7 @@ public class Student {
     private Date birthDate;
 
     @Column
-    private long mobileNumber;
+        private long mobileNumber;
 
     @Column
     private long phoneNumber;

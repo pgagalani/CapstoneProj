@@ -13,6 +13,10 @@ public class RegistrationService {
     }
 
     public Registration addRegistration(Registration registration){
-        return repo.save(registration);
+        if (registration.getId()==0)
+        {
+            throw new RuntimeException("Registration Id is not present");
+        }
+        return this.repo.save(registration);
     }
 }
