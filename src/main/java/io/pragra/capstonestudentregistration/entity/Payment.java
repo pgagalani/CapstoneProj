@@ -1,100 +1,117 @@
 package io.pragra.capstonestudentregistration.entity;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "PAYMENT_INFO")
 public class Payment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column
-    private double registrationFee;
+  @Column
+  private double registrationFee;
 
-    @Column
-    private double consultingFee;
+  @Column
+  private double consultingFee;
 
-    @Column
-    private double totalProgramFees;
+  @Column
+  private double totalProgramFees;
 
-    @Column
-    private int numOfInstallments;
+  @Column
+  private int numOfInstallments;
 
-  //  @OneToOne(targetEntity = Student.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-   // private Student student;
+  @OneToOne(targetEntity = Student.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private Student student;
 
-    @OneToOne(targetEntity = Student.class,cascade = CascadeType.ALL)
-    private long studentId;
+  public Payment() {
 
-    public Payment() {
-    }
+  }
 
-    public Payment(double registrationFee, double consultingFee, double totalProgramFees, int numOfInstallments, long student) {
-        this.registrationFee = registrationFee;
-        this.consultingFee = consultingFee;
-        this.totalProgramFees = totalProgramFees;
-        this.numOfInstallments = numOfInstallments;
-        this.studentId = student;
-    }
+  public Payment(double registrationFee, double consultingFee, double totalProgramFees,
+      int numOfInstallments, Student student) {
 
-    public long getId() {
-        return id;
-    }
+    this.registrationFee = registrationFee;
+    this.consultingFee = consultingFee;
+    this.totalProgramFees = totalProgramFees;
+    this.numOfInstallments = numOfInstallments;
+    this.student = student;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
 
-    public double getRegistrationFee() {
-        return registrationFee;
-    }
+    return id;
+  }
 
-    public void setRegistrationFee(double registrationFee) {
-        this.registrationFee = registrationFee;
-    }
+  public void setId(long id) {
 
-    public double getConsultingFee() {
-        return consultingFee;
-    }
+    this.id = id;
+  }
 
-    public void setConsultingFee(double consultingFee) {
-        this.consultingFee = consultingFee;
-    }
+  public double getRegistrationFee() {
 
-    public double getTotalProgramFees() {
-        return totalProgramFees;
-    }
+    return registrationFee;
+  }
 
-    public void setTotalProgramFees(double programFee) {
-        this.totalProgramFees = totalProgramFees;
-    }
+  public void setRegistrationFee(double registrationFee) {
 
-    public int getNumOfInstallments() {
-        return numOfInstallments;
-    }
+    this.registrationFee = registrationFee;
+  }
 
-    public void setNumOfInstallments(int numOfInstallments) {
-        this.numOfInstallments = numOfInstallments;
-    }
+  public double getConsultingFee() {
 
-    public long getStudent() {
-        return studentId;
-    }
+    return consultingFee;
+  }
 
-    public void setStudent(long student) {
-        this.studentId = student;
-    }
+  public void setConsultingFee(double consultingFee) {
 
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "registrationFee=" + registrationFee +
-                ", consultingFee=" + consultingFee +
-                ", totalProgramFees=" + totalProgramFees +
-                ", numOfInstallments=" + numOfInstallments +
-                ", student=" + studentId +
-                '}';
-    }
+    this.consultingFee = consultingFee;
+  }
+
+  public double getTotalProgramFees() {
+
+    return totalProgramFees;
+  }
+
+  public void setTotalProgramFees(double programFee) {
+
+    this.totalProgramFees = totalProgramFees;
+  }
+
+  public int getNumOfInstallments() {
+
+    return numOfInstallments;
+  }
+
+  public void setNumOfInstallments(int numOfInstallments) {
+
+    this.numOfInstallments = numOfInstallments;
+  }
+
+  public Student getStudent() {
+
+    return student;
+  }
+
+  public void setStudent(Student student) {
+
+    this.student = student;
+  }
+
+  @Override
+  public String toString() {
+
+    return "Payment{" + "registrationFee=" + registrationFee + ", consultingFee=" + consultingFee
+        + ", totalProgramFees=" + totalProgramFees + ", numOfInstallments=" + numOfInstallments
+        + ", student=" + student + '}';
+  }
 }

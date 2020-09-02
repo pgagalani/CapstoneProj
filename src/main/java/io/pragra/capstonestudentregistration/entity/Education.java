@@ -1,99 +1,117 @@
 package io.pragra.capstonestudentregistration.entity;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "STUDENT_EDUCATION")
 public class Education {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column(length = 255, nullable = false)
-    private String credentialType;
+  @Column(length = 255, nullable = false)
+  private String credentialType;
 
-    @Column(length = 255, nullable = false)
-    private String field;
+  @Column(length = 255, nullable = false)
+  private String field;
 
-    @Column(length = 255, nullable = false)
-    private String instituteName;
+  @Column(length = 255, nullable = false)
+  private String instituteName;
 
-    @Column(length = 5, nullable = false)
-    private int yearOfGraduation;
+  @Column(length = 5, nullable = false)
+  private int yearOfGraduation;
 
- //   @OneToOne(targetEntity = Student.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-   // private Student student;
-    @OneToOne(targetEntity = Student.class,cascade = CascadeType.ALL)
-    private long studentId;
+  @OneToOne(targetEntity = Student.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private Student student;
 
-    public Education() {
-    }
+  public Education() {
 
-    public Education(String credentialType, String field, String instituteName, int yearOfGraduation, long student) {
-        this.credentialType = credentialType;
-        this.field = field;
-        this.instituteName = instituteName;
-        this.yearOfGraduation = yearOfGraduation;
-        this.studentId = student;
-    }
+  }
 
-    public long getId() {
-        return id;
-    }
+  public Education(String credentialType, String field, String instituteName, int yearOfGraduation,
+      Student student) {
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    this.credentialType = credentialType;
+    this.field = field;
+    this.instituteName = instituteName;
+    this.yearOfGraduation = yearOfGraduation;
+    this.student = student;
+  }
 
-    public String getCredentialType() {
-        return credentialType;
-    }
+  public long getId() {
 
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
-    }
+    return id;
+  }
 
-    public String getField() {
-        return field;
-    }
+  public void setId(long id) {
 
-    public void setField(String field) {
-        this.field = field;
-    }
+    this.id = id;
+  }
 
-    public String getInstituteName() {
-        return instituteName;
-    }
+  public String getCredentialType() {
 
-    public void setInstituteName(String instituteName) {
-        this.instituteName = instituteName;
-    }
+    return credentialType;
+  }
 
-    public int getYearOfGraduation() {
-        return yearOfGraduation;
-    }
+  public void setCredentialType(String credentialType) {
 
-    public void setYearOfGraduation(int yearOfGraduation) {
-        this.yearOfGraduation = yearOfGraduation;
-    }
+    this.credentialType = credentialType;
+  }
 
-    public long getStudent() {
-        return studentId;
-    }
+  public String getField() {
 
-    public void setStudent(long student) {
-        this.studentId = student;
-    }
+    return field;
+  }
 
-    @Override
-    public String toString() {
-        return "Education{" +
-                "credentialType='" + credentialType + '\'' +
-                ", field='" + field + '\'' +
-                ", instituteName='" + instituteName + '\'' +
-                ", yearOfGraduation=" + yearOfGraduation +
-                ", student=" + studentId +
-                '}';
-    }
+  public void setField(String field) {
+
+    this.field = field;
+  }
+
+  public String getInstituteName() {
+
+    return instituteName;
+  }
+
+  public void setInstituteName(String instituteName) {
+
+    this.instituteName = instituteName;
+  }
+
+  public int getYearOfGraduation() {
+
+    return yearOfGraduation;
+  }
+
+  public void setYearOfGraduation(int yearOfGraduation) {
+
+    this.yearOfGraduation = yearOfGraduation;
+  }
+
+  public Student getStudent() {
+
+    return this.student;
+  }
+
+  public void setStudent(Student student) {
+
+    this.student = student;
+  }
+
+  @Override
+  public String toString() {
+
+    return "Education{" + "credentialType='" + credentialType + '\'' + ", field='" + field + '\''
+        + ", instituteName='" + instituteName + '\'' + ", yearOfGraduation=" + yearOfGraduation
+        + ", student=" + student + '}';
+  }
 }
