@@ -1,14 +1,6 @@
 package io.pragra.capstonestudentregistration.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "EMPLOYER_INFO")
@@ -27,7 +19,8 @@ public class Employer {
   @Column
   private long phoneNumber;
 
-  @OneToOne(targetEntity = Student.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @OneToOne(targetEntity = Student.class,  cascade = CascadeType.ALL)
+  @JoinColumn(name = "studentId", referencedColumnName = "studentId")
   private Student student;
 
   @Column

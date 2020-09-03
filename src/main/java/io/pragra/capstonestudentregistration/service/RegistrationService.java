@@ -4,6 +4,9 @@ import io.pragra.capstonestudentregistration.Repository.RegistrationRepo;
 import io.pragra.capstonestudentregistration.entity.Registration;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
+
 @Service
 public class RegistrationService {
 
@@ -13,10 +16,14 @@ public class RegistrationService {
     }
 
     public Registration addRegistration(Registration registration){
-        if (registration.getId()==0)
+        if (Objects.isNull(registration))
         {
             throw new RuntimeException("Registration Id is not present");
         }
         return this.repo.save(registration);
+    }
+    public List<Registration> getAll()
+    {
+        return this.repo.findAll();
     }
 }
