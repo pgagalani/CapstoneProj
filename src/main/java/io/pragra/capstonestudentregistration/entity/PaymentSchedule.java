@@ -27,11 +27,14 @@ public class PaymentSchedule {
   private long scheduleId;
 
   @Column
-  private double amount_due;
+  private double amountPaid;
 
   @Column
   private Date datePaid;
 
   @Column
   private double invoiceNum;
+
+  @Column
+  private PaymentType paymentType;
 }

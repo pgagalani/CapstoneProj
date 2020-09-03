@@ -36,6 +36,9 @@ public class Payment {
   @Column
   private int numOfInstallments;
 
+  @Column
+  private double amountDue;
+
   @Override
   public String toString() {
 
