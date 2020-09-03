@@ -1,7 +1,21 @@
 package io.pragra.capstonestudentregistration.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "STUDENT_EDUCATION")
 public class Education {
@@ -21,90 +35,4 @@ public class Education {
 
   @Column(length = 5, nullable = false)
   private int yearOfGraduation;
-
-  @ManyToOne(targetEntity = Student.class, fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-  @JoinColumn(name = "studentId")
-  private Student student;
-
-  public Education() {
-
-  }
-
-  public Education(String credentialType, String field, String instituteName, int yearOfGraduation,
-      Student student) {
-
-    this.credentialType = credentialType;
-    this.field = field;
-    this.instituteName = instituteName;
-    this.yearOfGraduation = yearOfGraduation;
-    this.student = student;
-  }
-
-  public long getId() {
-
-    return id;
-  }
-
-  public void setId(long id) {
-
-    this.id = id;
-  }
-
-  public String getCredentialType() {
-
-    return credentialType;
-  }
-
-  public void setCredentialType(String credentialType) {
-
-    this.credentialType = credentialType;
-  }
-
-  public String getField() {
-
-    return field;
-  }
-
-  public void setField(String field) {
-
-    this.field = field;
-  }
-
-  public String getInstituteName() {
-
-    return instituteName;
-  }
-
-  public void setInstituteName(String instituteName) {
-
-    this.instituteName = instituteName;
-  }
-
-  public int getYearOfGraduation() {
-
-    return yearOfGraduation;
-  }
-
-  public void setYearOfGraduation(int yearOfGraduation) {
-
-    this.yearOfGraduation = yearOfGraduation;
-  }
-
-  public Student getStudent() {
-
-    return this.student;
-  }
-
-  public void setStudent(Student student) {
-
-    this.student = student;
-  }
-
-  @Override
-  public String toString() {
-
-    return "Education{" + "credentialType='" + credentialType + '\'' + ", field='" + field + '\''
-        + ", instituteName='" + instituteName + '\'' + ", yearOfGraduation=" + yearOfGraduation
-        + ", student=" + student + '}';
-  }
 }

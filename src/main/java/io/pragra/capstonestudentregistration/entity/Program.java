@@ -1,57 +1,38 @@
 package io.pragra.capstonestudentregistration.entity;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "PROGRAM_TABLE")
 public class Program {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long pid;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long pid;
 
-    @Column(length = 255, nullable = false)
-    private String programName;
+  @Column(length = 255, nullable = false)
+  private String programName;
 
-    @Column
-    private double programFee;
+  @Column
+  private double programFee;
 
-    public Program() {
-    }
+  @Override
+  public String toString() {
 
-    public Program(String programName, double programFee) {
-        this.programName = programName;
-        this.programFee = programFee;
-    }
-
-    public long getPid() {
-        return pid;
-    }
-
-    public void setPid(long pid) {
-        this.pid = pid;
-    }
-
-    public String getProgramName() {
-        return programName;
-    }
-
-    public void setProgramName(String programName) {
-        this.programName = programName;
-    }
-
-    public double getProgramFee() {
-        return programFee;
-    }
-
-    public void setProgramFee(double programFee) {
-        this.programFee = programFee;
-    }
-
-    @Override
-    public String toString() {
-        return "Program{" +
-                "programName='" + programName + '\'' +
-                ", programFee=" + programFee +
-                '}';
-    }
+    return "Program{" + "programName='" + programName + '\'' + ", programFee=" + programFee + '}';
+  }
 }
