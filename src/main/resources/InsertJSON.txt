@@ -1,0 +1,53 @@
+{
+    "student": {
+        "firstName": "Pooja",
+        "lastName": "gagalani",
+        "joiningDate": "2020-10-01",
+        "birthDate": "1988-09-01",
+        "mobileNumber": 3843094803,
+        "phoneNumber": 488349303,
+        "email": "abc@pragra.ca",
+        "address": "Brampton",
+        "education": [
+            {
+                "credentialType": "Bachelors",
+                "field": "IT",
+                "instituteName": "Patan University",
+                "yearOfGraduation": 2015
+            },
+            {
+                "credentialType": "Masters",
+                "field": "IT",
+                "instituteName": "KSV University",
+                "yearOfGraduation": 2019
+            }
+        ],
+        "employers": [
+            {
+                "employerName": "Infosense",
+                "title": "Info",
+                "phoneNumber": 232289832,
+                "isSponsored": false
+            },
+            {
+                "employerName": "Infosense1",
+                "title": "Info1",
+                "phoneNumber": 382380238,
+                "isSponsored": true
+            }
+        ]
+    },
+    "progName":"ABC",
+    "paymentSchedule": [
+        {"amountPaid":200,
+        "datePaid":"2020-09-02",
+        "paymentType":"DOWNPAYMENT"}]
+    ,
+    "paidFees": {
+        "registrationFee": 100,
+        "consultingFee": 200,
+        "totalProgramFees": 4500,
+        "numOfInstallments": 3
+    },
+    "registrationDate": "2020-09-05"
+}

@@ -1,0 +1,8 @@
+{
+    "id":9,
+    "paymentSchedule": [
+        {"amountPaid":1000,
+        "datePaid":"2020-09-04",
+        "paymentType":"INSTALLMENT"}]
+    }
+}
