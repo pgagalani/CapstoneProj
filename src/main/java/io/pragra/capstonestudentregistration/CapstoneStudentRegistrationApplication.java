@@ -1,19 +1,8 @@
 package io.pragra.capstonestudentregistration;
 
-import java.util.Arrays;
-import java.util.Date;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import io.pragra.capstonestudentregistration.entity.Education;
-import io.pragra.capstonestudentregistration.entity.Employer;
-import io.pragra.capstonestudentregistration.entity.Payment;
-import io.pragra.capstonestudentregistration.entity.Program;
-import io.pragra.capstonestudentregistration.entity.Registration;
-import io.pragra.capstonestudentregistration.entity.Student;
 import io.pragra.capstonestudentregistration.service.RegistrationService;
 
 @SpringBootApplication

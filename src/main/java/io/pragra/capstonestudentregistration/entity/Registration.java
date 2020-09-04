@@ -38,16 +38,18 @@ public class Registration {
   @JoinColumn(name = "studentId", referencedColumnName = "studentId")
   private Student student;
 
-  @OneToMany(targetEntity = Program.class, cascade = CascadeType.ALL)
+  /*@OneToMany(targetEntity = Program.class, cascade = CascadeType.ALL)
   @JoinColumn(name = "registration_id")
-  private List<Program> programs;
+  private List<Program> programs;*/
+  @Column
+  private String progName;
 
   @OneToOne(targetEntity = Payment.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  @JoinColumn(name = "registration_id")
+  @JoinColumn(name = "payment_id")
   private Payment paidFees;
 
   @OneToMany(targetEntity = PaymentSchedule.class, cascade = CascadeType.ALL)
-  @JoinColumn(name = "registration_id")
+  @JoinColumn(name = "reg_id")
   private List<PaymentSchedule> paymentSchedule;
 
   @Column
@@ -57,7 +59,7 @@ public class Registration {
   @Override
   public String toString() {
 
-    return "Registration{" + "student=" + student + ", programs=" + programs + ", education="
+    return "Registration{" + "student=" + student + ", programs=" + progName + ", education="
     /* + education + ", employers=" + employers + ", paidFees=" */ + paidFees
         + ", registrationDate=" + registrationDate + '}';
   }

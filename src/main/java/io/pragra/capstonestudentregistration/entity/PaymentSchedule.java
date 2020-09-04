@@ -2,12 +2,7 @@ package io.pragra.capstonestudentregistration.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,8 +28,9 @@ public class PaymentSchedule {
   private Date datePaid;
 
   @Column
-  private double invoiceNum;
+  private double invoiceNum=Math.round(Math.random()*100);
 
+  @Enumerated(EnumType.STRING)
   @Column
   private PaymentType paymentType;
 }

@@ -36,4 +36,18 @@ public class RegistrationController {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON)
                 .body(registrationService.getAll());
     }
+
+
+    @PutMapping("/updatePayment/{id}")
+    public ResponseEntity<?> updateRegistration(@RequestBody Registration registration)
+    {
+
+        if(Objects.nonNull(registration))
+        {
+            registration=this.registrationService.updateRegistration(registration.getId(),registration.getPaymentSchedule().get(0));
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(registration);
+        }
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+    }
 }
