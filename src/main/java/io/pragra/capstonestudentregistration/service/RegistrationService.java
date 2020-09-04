@@ -47,6 +47,7 @@ public class RegistrationService {
 
         Optional<Registration> registration= repo.findById(registrationId);
         List<PaymentSchedule> paySchedule=new ArrayList<>();
+        paySchedule=registration.get().getPaymentSchedule();
         paySchedule.add(paymentSchedule);
         registration.get().setPaymentSchedule(paySchedule);
         long payment_id=registration.get().getPaidFees().getId();
